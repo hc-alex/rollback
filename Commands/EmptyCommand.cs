@@ -1,5 +1,4 @@
-﻿using System;
-using Test.Banks;
+﻿using Test.Banks;
 
 namespace Test.Commands
 {
@@ -11,8 +10,12 @@ namespace Test.Commands
 
     public override bool IsUndoable { get; } = false;
 
-    public override void Execute() => 
-      Console.WriteLine("Команда не сущуствует.");
+    public override void Execute()
+    {
+      Message.Text = "Команда не существует.";  
+      Message.AddDefault();
+    }
+
 
     public override void Undo()
     {

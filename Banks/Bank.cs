@@ -34,7 +34,7 @@ namespace Test.Banks
 
     public bool TryFindAccountById(string id, out Account account)
     {
-      account = _openAccounts.First(a => a.Id == id);
+      account = _openAccounts.Find(a => a.Id == id);
       return account != null;
     }
 

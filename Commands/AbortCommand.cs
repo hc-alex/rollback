@@ -10,16 +10,16 @@ namespace Test.Commands
     {
     }
 
-    public override bool IsUndoable { get; } = false;
-
-    public override void Undo()
-    {
-    }
-
     public override void Execute()
     {
       CurrentState?.ResetCurrentCommand();
       Message.SetDefault();
+    }
+
+    public override bool IsUndoable { get; } = false;
+
+    public override void Undo()
+    {
     }
   }
 }

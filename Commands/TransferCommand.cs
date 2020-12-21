@@ -55,9 +55,15 @@ namespace Test.Commands
 
     private bool TrySend()
     {
-      Bank.Transfer(_from, _to, float.Parse(CurrentState.UserInput));
-      Message.Text = "Отправлено.";
-      return true;
+      if (float.TryParse(CurrentState.UserInput, out float amount) && amount > 0)
+      {
+        Bank.Transfer(_from, _to, amount);
+        Message.Text = "Отправлено.";
+        return true;  
+      }
+
+      Message.Text = "Указана некорректная сумма перевода.";
+      return false;
     }
   }
 }
